@@ -1,0 +1,72 @@
+name: Publicar sitio
+
+on:
+  push:
+    branches: [master]
+  # Cada lunes: publica las páginas nuevas de la cola, actualiza el sitemap y avisa a los buscadores.
+  schedule:
+    - cron: '17 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  actions: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # Configurables en Settings → Secrets and variables → Actions → Variables (sin tocar código).
+      ADSENSE_CLIENT: ${{ vars.ADSENSE_CLIENT }}
+      CUSTOM_DOMAIN: ${{ vars.CUSTOM_DOMAIN }}
+      DONATION_URL: ${{ vars.DONATION_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm test
+      - run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+  after-deploy:
+    needs: deploy
+    runs-on: ubuntu-latest
+    env:
+      ADSENSE_CLIENT: ${{ vars.ADSENSE_CLIENT }}
+      CUSTOM_DOMAIN: ${{ vars.CUSTOM_DOMAIN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm run build
+      - name: Avisar a los buscadores (IndexNow)
+        run: node src/indexnow.mjs
+        continue-on-error: true
+      # GitHub desactiva los workflows programados tras 60 días sin actividad en el repo.
+      # Re-habilitarlo en cada ejecución mantiene la automatización viva indefinidamente.
+      - name: Mantener activo el workflow programado
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/deploy.yml/enable"
+        env:
+          GH_TOKEN: ${{ github.token }}
+        continue-on-error: true

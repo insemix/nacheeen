@@ -1,0 +1,12 @@
+{
+  "name": "nacheeen-calculadoras",
+  "private": true,
+  "type": "module",
+  "description": "Sitio estático de calculadoras en español, generado y desplegado automáticamente.",
+  "scripts": {
+    "build": "node src/build.mjs",
+    "test": "node --test test/*.test.mjs",
+    "serve": "node src/serve.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
