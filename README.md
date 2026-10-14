@@ -16,18 +16,17 @@ Un sitio web estático con **64 calculadoras y conversores en español** (IVA po
 
 Hay pasos que solo puedes hacer tú porque exigen tu identidad y tus datos bancarios.
 
-1. **Activa GitHub Pages.** En *Settings → Pages → Build and deployment → Source*, elige **GitHub Actions**.
-2. **Fusiona esta rama en `master`.** El primer despliegue se lanza solo. El sitio queda en `https://insemix.github.io/nacheeen/`.
-3. **Compra un dominio propio** (unos 10 $/año, por ejemplo en Cloudflare o Porkbun). AdSense casi nunca aprueba subdominios de `github.io`. Después:
+1. **Ya hecho:** el sitio se publica solo en la rama `gh-pages` en `https://insemix.github.io/nacheeen/`. Si no carga, en *Settings → Pages* elige *Deploy from a branch* → `gh-pages` / `(root)`.
+2. **Compra un dominio propio** (unos 10 $/año, por ejemplo en Cloudflare o Porkbun). AdSense casi nunca aprueba subdominios de `github.io`. Después:
    - En tu proveedor de dominio, crea un registro `CNAME` de `www` a `insemix.github.io`.
    - En *Settings → Secrets and variables → Actions → Variables*, crea `CUSTOM_DOMAIN` = `www.tudominio.com`.
    - En *Settings → Pages*, escribe el mismo dominio y marca **Enforce HTTPS**.
-4. **Date de alta en [Google AdSense](https://adsense.google.com)** con tu dominio. Copia tu ID de editor (`ca-pub-…`) y crea la variable `ADSENSE_CLIENT` con ese valor. El siguiente despliegue añade el código de anuncios y el archivo `ads.txt`. En AdSense:
+3. **Date de alta en [Google AdSense](https://adsense.google.com)** con tu dominio. Copia tu ID de editor (`ca-pub-…`) y crea la variable `ADSENSE_CLIENT` con ese valor. El siguiente despliegue añade el código de anuncios y el archivo `ads.txt`. En AdSense:
    - Activa **Auto ads**.
    - En *Privacidad y mensajes*, activa el mensaje de consentimiento del RGPD (necesario para el tráfico de Europa).
    - Añade tus datos fiscales y de pago.
-5. **Registra el sitio en [Google Search Console](https://search.google.com/search-console)** y envía `https://tudominio/sitemap.xml`. Es el paso que más acelera la llegada de visitas desde Google.
-6. *(Opcional)* Crea la variable `DONATION_URL` con un enlace de Ko-fi, Buy Me a Coffee o PayPal.me para mostrar un botón de donación.
+4. **Registra el sitio en [Google Search Console](https://search.google.com/search-console)** y envía `https://tudominio/sitemap.xml`. Es el paso que más acelera la llegada de visitas desde Google.
+5. *(Opcional)* Crea la variable `DONATION_URL` con un enlace de Ko-fi, Buy Me a Coffee o PayPal.me para mostrar un botón de donación.
 
 Tras cambiar una variable, ejecuta el workflow a mano (*Actions → Publicar sitio → Run workflow*) o espera al lunes.
 
@@ -41,7 +40,7 @@ Tras cambiar una variable, ejecuta el workflow a mano (*Actions → Publicar sit
 
 Lo que más mejora las probabilidades, por orden:
 
-1. Dominio propio y Search Console (pasos 3 y 5).
+1. Dominio propio y Search Console (pasos 2 y 4).
 2. Dejar que la cola semanal siga publicando páginas.
 3. Añadir más calculadoras (ver abajo). Cada página es una nueva puerta de entrada desde Google.
 
@@ -64,6 +63,6 @@ Estructura:
   - `publish`: la fecha a partir de la cual se publica.
 - `src/tools/variantes.mjs`: páginas programáticas (IVA por país y conversiones) con calendario de publicación.
 - `src/build.mjs`: el generador del sitio (HTML, sitemap, robots, ads.txt, JSON-LD). No tiene dependencias.
-- `.github/workflows/deploy.yml`: el despliegue en cada push a `master` y cada lunes.
+- `.github/workflows/deploy.yml`: publica en la rama `gh-pages` en cada push a `master` y cada lunes.
 
 Para añadir una calculadora, crea el objeto en `src/tools/` (con `publish` en una fecha futura si quieres programarla), añade sus tests en `test/logic.test.mjs` y haz push. El resto es automático.
