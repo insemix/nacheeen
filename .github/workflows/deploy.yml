@@ -1,0 +1,53 @@
+name: Publicar sitio
+
+on:
+  push:
+    branches: [master]
+  # Cada lunes: publica las páginas nuevas de la cola, actualiza el sitemap y avisa a los buscadores.
+  schedule:
+    - cron: '17 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      # Configurables en Settings → Secrets and variables → Actions → Variables (sin tocar código).
+      ADSENSE_CLIENT: ${{ vars.ADSENSE_CLIENT }}
+      CUSTOM_DOMAIN: ${{ vars.CUSTOM_DOMAIN }}
+      DONATION_URL: ${{ vars.DONATION_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm test
+      - run: npm run build
+      # Publica dist/ en la rama gh-pages, que GitHub Pages sirve directamente.
+      - name: Publicar en gh-pages
+        run: |
+          cd dist
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Publicación $(date -u +%F)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" gh-pages
+      - name: Avisar a los buscadores (IndexNow)
+        run: node src/indexnow.mjs
+        continue-on-error: true
+      # GitHub desactiva los workflows programados tras 60 días sin actividad en el repo.
+      # Re-habilitarlo en cada ejecución mantiene la automatización viva indefinidamente.
+      - name: Mantener activo el workflow programado
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/deploy.yml/enable"
+        env:
+          GH_TOKEN: ${{ github.token }}
+        continue-on-error: true
