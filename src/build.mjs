@@ -27,6 +27,13 @@ export function loadConfig() {
   if (cfg.adsenseClient && !/^ca-pub-\d{10,20}$/.test(cfg.adsenseClient)) {
     throw new Error(`adsenseClient inválido: "${cfg.adsenseClient}" (formato esperado: ca-pub-1234567890123456)`);
   }
+  // En GitHub Actions, la URL se deduce del repositorio: un repo llamado `<usuario>.github.io`
+  // se sirve en la raíz del dominio (necesario para verificar AdSense y para ads.txt).
+  if (env.GITHUB_REPOSITORY) {
+    const [owner, name] = env.GITHUB_REPOSITORY.split('/');
+    cfg.siteUrl = name.toLowerCase() === `${owner}.github.io`.toLowerCase()
+      ? `https://${name.toLowerCase()}` : `https://${owner.toLowerCase()}.github.io/${name}`;
+  }
   const origin = cfg.customDomain ? `https://${cfg.customDomain}` : cfg.siteUrl.replace(/\/+$/, '');
   const url = new URL(origin);
   cfg.origin = url.origin;

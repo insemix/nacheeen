@@ -4,7 +4,7 @@ import { readFileSync, existsSync, mkdtempSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import vm from 'node:vm';
-import { build, ALL_TOOLS, publishedTools, toolScript } from '../src/build.mjs';
+import { build, loadConfig, ALL_TOOLS, publishedTools, toolScript } from '../src/build.mjs';
 
 test('todas las páginas tienen campos válidos y slugs únicos', () => {
   publishedTools('2099-01-01');
@@ -50,6 +50,22 @@ test('build genera sitemap, robots y páginas sin enlaces internos rotos', () =>
       assert.ok(slug === '' || slugs.has(slug), `${f}: enlace roto ${href}`);
     }
     for (const [, json] of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)) JSON.parse(json);
+  }
+});
+
+test('un repo <usuario>.github.io se publica en la raíz del dominio', () => {
+  const out = mkdtempSync(join(tmpdir(), 'calc-'));
+  const prev = process.env.GITHUB_REPOSITORY;
+  try {
+    process.env.GITHUB_REPOSITORY = 'insemix/insemix.github.io';
+    const { cfg } = build({ date: '2026-10-14', out });
+    assert.equal(cfg.origin + cfg.base, 'https://insemix.github.io');
+    assert.ok(readFileSync(join(out, 'index.html'), 'utf8').includes('href="/assets/style.css'));
+    assert.ok(readFileSync(join(out, 'robots.txt'), 'utf8').includes('Sitemap: https://insemix.github.io/sitemap.xml'));
+    process.env.GITHUB_REPOSITORY = 'insemix/nacheeen';
+    assert.equal(loadConfig().base, '/nacheeen');
+  } finally {
+    if (prev === undefined) delete process.env.GITHUB_REPOSITORY; else process.env.GITHUB_REPOSITORY = prev;
   }
 });
 
