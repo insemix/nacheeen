@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de calorías diarias (TMB y gasto total)</title>
+<meta name="description" content="Calcula tu metabolismo basal (fórmula Mifflin-St Jeor) y las calorías que necesitas al día para mantener, perder o ganar peso según tu actividad.">
+<link rel="canonical" href="https://insemix.github.io/nacheeen/calculadora-calorias-diarias/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calculadora de calorías diarias (TMB y gasto total)">
+<meta property="og:description" content="Calcula tu metabolismo basal (fórmula Mifflin-St Jeor) y las calorías que necesitas al día para mantener, perder o ganar peso según tu actividad.">
+<meta property="og:url" content="https://insemix.github.io/nacheeen/calculadora-calorias-diarias/">
+<meta property="og:site_name" content="CalcuFácil">
+<meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#0b6e4f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b6e4f'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3E%3D%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/nacheeen/assets/style.css?v=235687a2">
+<meta name="google-adsense-account" content="ca-pub-4548348528154150">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4548348528154150" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Calculadora de calorías diarias","url":"https://insemix.github.io/nacheeen/calculadora-calorias-diarias/","description":"Calcula tu metabolismo basal (fórmula Mifflin-St Jeor) y las calorías que necesitas al día para mantener, perder o ganar peso según tu actividad.","applicationCategory":"HealthApplication","operatingSystem":"Any","inLanguage":"es","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://insemix.github.io/nacheeen/"},{"@type":"ListItem","position":2,"name":"Calculadora de calorías diarias","item":"https://insemix.github.io/nacheeen/calculadora-calorias-diarias/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántas calorías debo comer para adelgazar?","acceptedAnswer":{"@type":"Answer","text":"Como orientación, unas 300–500 kcal menos que tu gasto total. Un déficit muy agresivo dificulta mantener la masa muscular y la adherencia."}}]}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/nacheeen/">Calcu<span>Fácil</span></a></div></header>
+<main class="wrap">
+
+<nav class="crumbs"><a href="/nacheeen/">Inicio</a> › Salud</nav>
+<article>
+<h1>Calculadora de calorías diarias</h1>
+<p class="lead">Usa la fórmula de Mifflin-St Jeor, una de las más precisas para adultos.</p>
+<form id="f" class="card" autocomplete="off" novalidate>
+    <div class="row">
+      <label>Sexo<select id="s"><option value="m">Hombre</option><option value="f">Mujer</option></select></label>
+      <label>Edad<input id="a" inputmode="numeric" value="30"></label>
+    </div><div class="row">
+      <label>Peso (kg)<input id="w" inputmode="decimal" value="70"></label>
+      <label>Altura (cm)<input id="h" inputmode="decimal" value="170"></label>
+    </div>
+    <label>Actividad física<select id="act">
+      <option value="1.2">Sedentaria (poco o ningún ejercicio)</option>
+      <option value="1.375">Ligera (1–3 días por semana)</option>
+      <option value="1.55" selected>Moderada (3–5 días por semana)</option>
+      <option value="1.725">Alta (6–7 días por semana)</option>
+      <option value="1.9">Muy alta (trabajo físico o doble sesión)</option></select></label></form>
+<div id="resultado" class="result" aria-live="polite"></div>
+<section class="content">
+    <h2>Metabolismo basal y gasto calórico total</h2>
+    <p>El <strong>metabolismo basal</strong> (TMB) es la energía que tu cuerpo gasta en reposo para mantener sus funciones vitales. Al multiplicarlo por un factor de actividad se obtiene el gasto energético total diario.</p>
+    <h2>Fórmula de Mifflin-St Jeor</h2>
+    <ul><li>Hombres: 10 × peso + 6,25 × altura − 5 × edad + 5</li><li>Mujeres: 10 × peso + 6,25 × altura − 5 × edad − 161</li></ul>
+    <p>Un déficit de unas 500 kcal diarias suele traducirse en una pérdida de alrededor de 0,5 kg por semana. No es recomendable bajar de forma prolongada del metabolismo basal sin supervisión profesional.</p><p><em>Resultado orientativo. No sustituye la valoración de un profesional sanitario.</em></p></section>
+<section class="faq"><h2>Preguntas frecuentes</h2><details><summary>¿Cuántas calorías debo comer para adelgazar?</summary><p>Como orientación, unas 300–500 kcal menos que tu gasto total. Un déficit muy agresivo dificulta mantener la masa muscular y la adherencia.</p></details></section>
+<section><h2>Calculadoras relacionadas</h2><div class="grid"><a href="/nacheeen/calculadora-imc/" data-search="Calculadora de IMC">Calculadora de IMC<small>Índice de masa corporal y peso saludable</small></a><a href="/nacheeen/cuanta-agua-beber-al-dia/" data-search="¿Cuánta agua debo beber al día?">¿Cuánta agua debo beber al día?<small>Litros de agua recomendados según tu peso</small></a><a href="/nacheeen/calculadora-fecha-probable-parto/" data-search="Calculadora de fecha probable de parto">Calculadora de fecha probable de parto<small>Fecha de parto y semanas de embarazo</small></a><a href="/nacheeen/calculadora-ritmo-carrera/" data-search="Calculadora de ritmo de carrera">Calculadora de ritmo de carrera<small>Ritmo por km, velocidad y tiempos para 5K a maratón</small></a></div></section>
+<section><h2>Otras herramientas</h2><div class="grid"><a href="/nacheeen/calculadora-iva/" data-search="Calculadora de IVA">Calculadora de IVA<small>Añade o quita el IVA de cualquier importe</small></a><a href="/nacheeen/calculadora-porcentajes/" data-search="Calculadora de porcentajes">Calculadora de porcentajes<small>Cuánto es el X% de Y, qué porcentaje es y variación</small></a><a href="/nacheeen/calculadora-interes-compuesto/" data-search="Calculadora de interés compuesto">Calculadora de interés compuesto<small>Cuánto crecerán tus ahorros con el tiempo</small></a><a href="/nacheeen/calculadora-prestamos/" data-search="Calculadora de préstamos y cuota mensual">Calculadora de préstamos y cuota mensual<small>Cuota mensual, intereses totales y amortización</small></a></div></section>
+</article>
+
+</main>
+<footer><div class="wrap">
+<a href="/nacheeen/">Todas las calculadoras</a><a href="/nacheeen/acerca/">Acerca de</a><a href="/nacheeen/privacidad/">Privacidad y cookies</a><a href="https://github.com/insemix/nacheeen/issues" rel="noopener">Contacto</a>
+<p>© 2026 CalcuFácil. Herramientas gratuitas con fines informativos.</p>
+</div></footer>
+<script src="/nacheeen/assets/site.js?v=235687a2"></script>
+<script>(function(){'use strict';var L={bmr(sex, kg, cm, age) { return 10 * kg + 6.25 * cm - 5 * age + (sex === 'f' ? -161 : 5); }};(function (L, H) {
+    H.bind(function () {
+      const b = L.bmr(H.val('s'), H.num('w'), H.num('h'), H.num('a'));
+      if (!isFinite(b)) return H.out(H.hint('Completa todos los campos.'));
+      const t = b * parseFloat(H.val('act'));
+      H.out(H.stat('Calorías para mantener tu peso', H.fmt(t, 0) + ' kcal/día', true) + H.stat('Metabolismo basal (TMB)', H.fmt(b, 0) + ' kcal') +
+        H.stat('Para perder ~0,5 kg/semana', H.fmt(t - 500, 0) + ' kcal') + H.stat('Para ganar masa muscular', H.fmt(t + 300, 0) + ' kcal'));
+    });
+  })(L,window.H,{});})();</script>
+</body>
+</html>

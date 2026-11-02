@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de interés compuesto con aportaciones mensuales</title>
+<meta name="description" content="Calcula cuánto crecerá tu dinero con interés compuesto y aportaciones mensuales. Tabla año a año con capital aportado e intereses generados.">
+<link rel="canonical" href="https://insemix.github.io/nacheeen/calculadora-interes-compuesto/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calculadora de interés compuesto con aportaciones mensuales">
+<meta property="og:description" content="Calcula cuánto crecerá tu dinero con interés compuesto y aportaciones mensuales. Tabla año a año con capital aportado e intereses generados.">
+<meta property="og:url" content="https://insemix.github.io/nacheeen/calculadora-interes-compuesto/">
+<meta property="og:site_name" content="CalcuFácil">
+<meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#0b6e4f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b6e4f'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3E%3D%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/nacheeen/assets/style.css?v=235687a2">
+<meta name="google-adsense-account" content="ca-pub-4548348528154150">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4548348528154150" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Calculadora de interés compuesto","url":"https://insemix.github.io/nacheeen/calculadora-interes-compuesto/","description":"Calcula cuánto crecerá tu dinero con interés compuesto y aportaciones mensuales. Tabla año a año con capital aportado e intereses generados.","applicationCategory":"FinanceApplication","operatingSystem":"Any","inLanguage":"es","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://insemix.github.io/nacheeen/"},{"@type":"ListItem","position":2,"name":"Calculadora de interés compuesto","item":"https://insemix.github.io/nacheeen/calculadora-interes-compuesto/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Qué diferencia hay entre interés simple y compuesto?","acceptedAnswer":{"@type":"Answer","text":"El simple solo se calcula sobre el capital inicial. El compuesto se calcula también sobre los intereses acumulados, así que con plazos largos crece mucho más rápido."}},{"@type":"Question","name":"¿Qué rentabilidad anual es realista?","acceptedAnswer":{"@type":"Answer","text":"Depende del producto. Los depósitos suelen ofrecer poco, y los índices bursátiles amplios han rendido históricamente más, pero con años negativos. Prueba varios escenarios."}}]}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/nacheeen/">Calcu<span>Fácil</span></a></div></header>
+<main class="wrap">
+
+<nav class="crumbs"><a href="/nacheeen/">Inicio</a> › Finanzas</nav>
+<article>
+<h1>Calculadora de interés compuesto</h1>
+<p class="lead">Introduce tu capital inicial, cuánto aportarás cada mes, la rentabilidad anual esperada y el plazo.</p>
+<form id="f" class="card" autocomplete="off" novalidate>
+    <div class="row">
+      <label>Capital inicial<input id="p" inputmode="decimal" value="1000"></label>
+      <label>Aportación mensual<input id="m" inputmode="decimal" value="100"></label>
+    </div>
+    <div class="row">
+      <label>Interés anual (%)<input id="r" inputmode="decimal" value="7"></label>
+      <label>Años<input id="y" inputmode="numeric" value="20"></label>
+    </div></form>
+<div id="resultado" class="result" aria-live="polite"></div>
+<section class="content">
+    <h2>Qué es el interés compuesto</h2>
+    <p>Con el interés compuesto, los intereses que generas se suman al capital y empiezan a generar intereses a su vez. Por eso el crecimiento se acelera con el tiempo: en los primeros años la mayor parte del saldo son tus aportaciones, y con plazos largos los intereses acaban superándolas.</p>
+    <h2>Fórmula</h2>
+    <p>Sin aportaciones: <strong>C<sub>f</sub> = C<sub>0</sub> × (1 + r/n)<sup>n·t</sup></strong>, donde r es el interés anual, n el número de capitalizaciones al año y t los años. La calculadora capitaliza mensualmente y suma tu aportación al final de cada mes.</p>
+    <h2>La regla del 72</h2>
+    <p>Para saber de memoria en cuántos años se duplica tu dinero, divide 72 entre el interés anual. Al 7%, el capital se duplica en unos 10 años; al 4%, en unos 18.</p>
+    <p><em>Esta herramienta es una simulación y no constituye asesoramiento financiero. Las rentabilidades pasadas no garantizan rentabilidades futuras, y la inflación y los impuestos reducen el resultado real.</em></p></section>
+<section class="faq"><h2>Preguntas frecuentes</h2><details><summary>¿Qué diferencia hay entre interés simple y compuesto?</summary><p>El simple solo se calcula sobre el capital inicial. El compuesto se calcula también sobre los intereses acumulados, así que con plazos largos crece mucho más rápido.</p></details><details><summary>¿Qué rentabilidad anual es realista?</summary><p>Depende del producto. Los depósitos suelen ofrecer poco, y los índices bursátiles amplios han rendido históricamente más, pero con años negativos. Prueba varios escenarios.</p></details></section>
+<section><h2>Calculadoras relacionadas</h2><div class="grid"><a href="/nacheeen/calculadora-iva/" data-search="Calculadora de IVA">Calculadora de IVA<small>Añade o quita el IVA de cualquier importe</small></a><a href="/nacheeen/calculadora-prestamos/" data-search="Calculadora de préstamos y cuota mensual">Calculadora de préstamos y cuota mensual<small>Cuota mensual, intereses totales y amortización</small></a><a href="/nacheeen/calculadora-descuentos/" data-search="Calculadora de descuentos">Calculadora de descuentos<small>Precio final tras uno o dos descuentos</small></a><a href="/nacheeen/calculadora-propinas-dividir-cuenta/" data-search="Calculadora de propinas y dividir la cuenta">Calculadora de propinas y dividir la cuenta<small>Propina y cuánto paga cada persona</small></a><a href="/nacheeen/calculadora-margen-ganancia/" data-search="Calculadora de margen de ganancia">Calculadora de margen de ganancia<small>Margen, markup y precio de venta</small></a><a href="/nacheeen/calculadora-ahorro-meta/" data-search="Calculadora de ahorro por objetivo">Calculadora de ahorro por objetivo<small>Cuánto ahorrar cada mes para llegar a tu meta</small></a></div></section>
+<section><h2>Otras herramientas</h2><div class="grid"><a href="/nacheeen/calculadora-porcentajes/" data-search="Calculadora de porcentajes">Calculadora de porcentajes<small>Cuánto es el X% de Y, qué porcentaje es y variación</small></a><a href="/nacheeen/calculadora-imc/" data-search="Calculadora de IMC">Calculadora de IMC<small>Índice de masa corporal y peso saludable</small></a><a href="/nacheeen/calculadora-calorias-diarias/" data-search="Calculadora de calorías diarias">Calculadora de calorías diarias<small>Calorías para mantener, perder o ganar peso</small></a><a href="/nacheeen/cuanta-agua-beber-al-dia/" data-search="¿Cuánta agua debo beber al día?">¿Cuánta agua debo beber al día?<small>Litros de agua recomendados según tu peso</small></a></div></section>
+</article>
+
+</main>
+<footer><div class="wrap">
+<a href="/nacheeen/">Todas las calculadoras</a><a href="/nacheeen/acerca/">Acerca de</a><a href="/nacheeen/privacidad/">Privacidad y cookies</a><a href="https://github.com/insemix/nacheeen/issues" rel="noopener">Contacto</a>
+<p>© 2026 CalcuFácil. Herramientas gratuitas con fines informativos.</p>
+</div></footer>
+<script src="/nacheeen/assets/site.js?v=235687a2"></script>
+<script>(function(){'use strict';var L={compound(principal, monthly, annualRate, years) {
+      const r = annualRate / 100 / 12;
+      const rows = [];
+      let bal = principal, contributed = principal;
+      for (let y = 1; y <= years; y++) {
+        for (let m = 0; m < 12; m++) { bal = bal * (1 + r) + monthly; contributed += monthly; }
+        rows.push({ year: y, balance: bal, contributed, interest: bal - contributed });
+      }
+      return rows;
+    }};(function (L, H) {
+    H.bind(function () {
+      const p = H.num('p') || 0, m = H.num('m') || 0, r = H.num('r'), y = Math.round(H.num('y'));
+      if (!isFinite(r) || !(y > 0) || y > 100) return H.out(H.hint('Introduce un interés y un número de años entre 1 y 100.'));
+      const rows = L.compound(p, m, r, y), last = rows[rows.length - 1];
+      let t = '<div class="table-wrap"><table><thead><tr><th>Año</th><th>Aportado</th><th>Intereses</th><th>Saldo</th></tr></thead><tbody>';
+      rows.forEach(function (x) { t += '<tr><td>' + x.year + '</td><td>' + H.money(x.contributed) + '</td><td>' + H.money(x.interest) + '</td><td>' + H.money(x.balance) + '</td></tr>'; });
+      H.out(H.stat('Saldo final tras ' + y + ' años', H.money(last.balance), true) +
+        H.stat('Total aportado', H.money(last.contributed)) +
+        H.stat('Intereses generados', H.money(last.interest)) + t + '</tbody></table></div>');
+    });
+  })(L,window.H,{});})();</script>
+</body>
+</html>
