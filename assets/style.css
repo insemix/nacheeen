@@ -1,0 +1,74 @@
+:root {
+  --bg: #f7f7f5; --surface: #ffffff; --text: #1d1d1f; --muted: #5f6368;
+  --line: #e3e3df; --accent: #0b6e4f; --accent-soft: #e3f2ec; --radius: 12px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121413; --surface: #1c1f1e; --text: #ececea; --muted: #a3a8a6;
+    --line: #2d3230; --accent: #4cc596; --accent-soft: #1d3329;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+a { color: var(--accent); }
+.wrap { max-width: 780px; margin: 0 auto; padding: 0 16px; }
+header.top { border-bottom: 1px solid var(--line); background: var(--surface); }
+header.top .wrap { display: flex; align-items: center; gap: 12px; min-height: 56px; }
+.brand { font-weight: 700; font-size: 1.15rem; text-decoration: none; color: var(--text); }
+.brand span { color: var(--accent); }
+nav.crumbs { font-size: .875rem; color: var(--muted); margin: 16px 0 0; }
+nav.crumbs a { color: var(--muted); }
+h1 { font-size: 1.75rem; line-height: 1.25; margin: 12px 0 8px; }
+h2 { font-size: 1.25rem; margin: 32px 0 8px; }
+h3 { font-size: 1.05rem; margin: 20px 0 6px; }
+.lead { color: var(--muted); margin: 0 0 16px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; }
+form.card { display: grid; gap: 12px; }
+.row { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+label { display: grid; gap: 4px; font-size: .9rem; font-weight: 600; }
+label.inline { display: flex; align-items: center; gap: 8px; font-weight: 500; }
+input, select, textarea {
+  font: inherit; color: var(--text); background: var(--bg); width: 100%;
+  border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; min-height: 44px;
+}
+input[type=checkbox], input[type=radio] { width: auto; min-height: 0; }
+textarea { min-height: 160px; resize: vertical; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+button {
+  font: inherit; font-weight: 600; border: 0; border-radius: 8px; padding: 10px 16px; min-height: 44px;
+  background: var(--accent); color: #fff; cursor: pointer;
+}
+fieldset { border: 1px solid var(--line); border-radius: 8px; padding: 12px; margin: 0; }
+legend { font-weight: 600; font-size: .9rem; padding: 0 4px; }
+.result { margin: 16px 0; display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+.result:empty { display: none; }
+.stat { background: var(--accent-soft); border-radius: var(--radius); padding: 12px 14px; display: grid; }
+.stat span { font-size: .8rem; color: var(--muted); }
+.stat strong { font-size: 1.15rem; word-break: break-word; }
+.stat.big { grid-column: 1 / -1; }
+.stat.big strong { font-size: 1.6rem; }
+.hint { grid-column: 1 / -1; color: var(--muted); margin: 0; font-size: .9rem; }
+.table-wrap { grid-column: 1 / -1; overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; background: var(--surface); }
+th, td { border-bottom: 1px solid var(--line); padding: 6px 8px; text-align: right; white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+.content { margin-top: 24px; }
+.content li { margin: 4px 0; }
+details { border-bottom: 1px solid var(--line); padding: 10px 0; }
+summary { cursor: pointer; font-weight: 600; }
+.grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.grid a {
+  display: block; text-decoration: none; color: var(--text); background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px;
+}
+.grid a:hover { border-color: var(--accent); }
+.grid a small { display: block; color: var(--muted); font-size: .8rem; margin-top: 2px; }
+.search { margin: 16px 0 8px; }
+.support { margin: 32px 0 0; text-align: center; }
+footer { margin: 48px 0 0; padding: 24px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .875rem; }
+footer a { color: var(--muted); margin-right: 12px; }
+.pw { font-family: ui-monospace, Menlo, Consolas, monospace; }
